@@ -29,8 +29,7 @@ export class RegisterComponent implements OnInit {
   crearUsuario(): void {
     if (this.registroForm.invalid) { return; }
     const { nombre, correo, password } = this.registroForm.value;
-    this.authService.crearUsuario(nombre, correo, password).then((credenciales: firebase.default.auth.UserCredential) => {
-      console.log(credenciales);
+    this.authService.crearUsuario(nombre, correo, password).then(() => {
       this.router.navigate(['/']);
     }).catch(err => console.log(err));
   }
